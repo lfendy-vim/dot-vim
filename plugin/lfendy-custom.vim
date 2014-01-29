@@ -1,5 +1,8 @@
 set t_Co=256
-colorscheme anotherdark
+"let g:solarized_termcolors=256
+colorscheme solarized
+set background=dark
+"colorscheme anotherdark
 syntax on
 
 set hlsearch
@@ -58,16 +61,13 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "autocmd ColorScheme * highlight LineLengthError ctermbg=black guibg=black
 
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
-map <silent> <LocalLeader>fb :FufBuffer<CR>
-map <silent> <LocalLeader>fl :FufLine<CR>
+map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 map <silent> <LocalLeader>gu :GundoToggle<CR>
 
-nnoremap <D-t> :tabe<cr>
-vnoremap <D-t> :tabe<cr>
-inoremap <D-t> :tabe<cr>
 nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR><C-o>
 nnoremap <leader>ss :source ~/.vim/plugin/lfendy-custom.vim<cr>
 nnoremap <leader>ee :tabe ~/.vim/plugin/lfendy-custom.vim<cr>
+nnoremap <leader>bb :tabe $MYVIMRC<cr>
 nnoremap <silent> <LocalLeader><space> :noh<CR>
 nnoremap <F1> <ESC>
 inoremap <F1> <ESC>
@@ -80,11 +80,39 @@ nnoremap <silent><S-D-Up> :wincmd k<cr>
 nnoremap <silent><S-D-Down> :wincmd j<cr>
 nnoremap <silent><S-D-Left> :wincmd h<cr>
 nnoremap <silent><S-D-Right> :wincmd l<cr>
-nnoremap <silent><leader>ff ::Unite -start-insert file_rec<cr>
+let g:unite_source_history_yank_file=$HOME.'/.vim/yankring.txt'
+let g:unite_source_history_yank_enable=1
+nnoremap <silent><leader>yy :Unite -buffer-name=yank history/yank<cr>
+nnoremap <silent><leader>ff :Unite -start-insert file_rec<cr>
+nnoremap <silent><leader>be :Unite -start-insert buffer<cr>
+nnoremap <silent><leader>tt :!ctags -R --exclude=.git --exclude=log *<cr>
+nnoremap ,, :wa<cr> :Unite -start-insert file_rec<cr>
+nnoremap <leader>aw :Ack '<C-r><C-w>'<CR>
+set backspace=indent,eol,start
+
+"Javascript
+let g:javascript_conceal=1
+set conceallevel=1
+
+"Ack grep using the silver searcher
+ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "Unite config
  call unite#custom_source(
          \ 'file_rec', 'matchers', ['matcher_fuzzy'])
 
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+let g:unite_source_grep_recursive_opt = ''
+
+"run test
+nnoremap <silent><leader>vc :VimuxClose<cr>
+nnoremap <silent><leader>vf :wa<cr> :call VimuxRunCommand("ccc && be rspec " . bufname("%"))<cr>
+nnoremap <silent><leader>vt :wa<cr> :call VimuxRunCommand("ccc && be rspec " . bufname("%") . ":" . line("."))<cr>
+nnoremap <silent><leader>va :wa<cr> :call VimuxRunCommand("ccc && be rspec ")<cr>
+"nnoremap <silent><leader>rt :!be rspec %
+
 
 command! Tidy execute "0,$! tidy -i -xml -q"
+
+let g:VimuxHeight=40
