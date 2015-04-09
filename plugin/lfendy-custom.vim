@@ -1,8 +1,8 @@
 set t_Co=256
 "let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
 set background=dark
-"colorscheme anotherdark
+colorscheme anotherdark
 syntax on
 
 set hlsearch
@@ -91,11 +91,11 @@ nnoremap <leader>aw :Ack '<C-r><C-w>'<CR>
 set backspace=indent,eol,start
 
 "Javascript
-let g:javascript_conceal=1
-set conceallevel=1
+let g:javascript_conceal=0
+set conceallevel=0
 
 "Ack grep using the silver searcher
- let g:ackprg = 'ag --nogroup --nocolor --column'
+"let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "Unite config
  call unite#custom_source(
