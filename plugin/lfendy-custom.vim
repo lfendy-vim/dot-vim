@@ -86,6 +86,7 @@ nnoremap <silent><leader>yy :Unite -buffer-name=yank history/yank<cr>
 nnoremap <silent><leader>ff :Unite -start-insert file_rec<cr>
 nnoremap <silent><leader>be :Unite -start-insert buffer<cr>
 nnoremap <silent><leader>tt :!ctags -R --exclude=.git --exclude=log *<cr>
+nnoremap <silent><leader>ds :DiffSaved<cr>
 nnoremap ,, :wa<cr> :Unite -start-insert file_rec<cr>
 nnoremap <leader>aw :Ack '<C-r><C-w>'<CR>
 set backspace=indent,eol,start
@@ -115,4 +116,18 @@ nnoremap <silent><leader>va :wa<cr> :call VimuxRunCommand("ccc && be rspec ")<cr
 
 command! Tidy execute "0,$! tidy -i -xml -q"
 
+
+
+
+
 let g:VimuxHeight=40
+
+
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
