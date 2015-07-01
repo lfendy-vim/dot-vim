@@ -80,11 +80,7 @@ nnoremap <silent><S-D-Up> :wincmd k<cr>
 nnoremap <silent><S-D-Down> :wincmd j<cr>
 nnoremap <silent><S-D-Left> :wincmd h<cr>
 nnoremap <silent><S-D-Right> :wincmd l<cr>
-let g:unite_source_history_yank_file=$HOME.'/.vim/yankring.txt'
-let g:unite_source_history_yank_enable=1
-nnoremap <silent><leader>yy :Unite -buffer-name=yank history/yank<cr>
-nnoremap <silent><leader>ff :Unite -start-insert file_rec<cr>
-nnoremap <silent><leader>be :Unite -start-insert buffer<cr>
+nnoremap <silent><leader>ff :CtrlP<cr>
 nnoremap <silent><leader>tt :!ctags -R --exclude=.git --exclude=log *<cr>
 nnoremap <silent><leader>ds :DiffSaved<cr>
 nnoremap ,, :wa<cr> :Unite -start-insert file_rec<cr>
@@ -97,14 +93,6 @@ set conceallevel=0
 
 "Ack grep using the silver searcher
 "let g:ackprg = 'ag --nogroup --nocolor --column'
-
-"Unite config
- call unite#custom_source(
-         \ 'file_rec', 'matchers', ['matcher_fuzzy'])
-
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-let g:unite_source_grep_recursive_opt = ''
 
 "run test
 nnoremap <silent><leader>vc :VimuxClose<cr>
