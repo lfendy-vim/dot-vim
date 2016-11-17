@@ -108,6 +108,7 @@ command! Tidy execute "0,$! tidy -i -xml -q"
 
 
 
+let g:NERDTreeDirArrows=0
 let g:VimuxHeight=40
 
 

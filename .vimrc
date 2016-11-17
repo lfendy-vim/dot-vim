@@ -14,13 +14,10 @@ Bundle 'lfendy-vim/gundo.vim'
 Bundle 'lfendy-vim/ctrlp.vim'
 Bundle 'lfendy-vim/ack.vim'
 Bundle 'lfendy-vim/vim-ruby'
-Bundle 'lfendy-vim/vim-javascript'
-Bundle 'lfendy-vim/vim-handlebars'
 Bundle 'lfendy-vim/vim-rails'
 Bundle 'lfendy-vim/vim-fugitive'
 Bundle 'lfendy-vim/vim-colorschemes'
 Bundle 'lfendy-vim/vim-indent-guides'
-Bundle 'elzr/vim-json'
 
 
 
