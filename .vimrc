@@ -18,6 +18,7 @@ Bundle 'lfendy-vim/vim-rails'
 Bundle 'lfendy-vim/vim-fugitive'
 Bundle 'lfendy-vim/vim-colorschemes'
 Bundle 'lfendy-vim/vim-indent-guides'
+Bundle 'pangloss/vim-javascript'
 
 
 

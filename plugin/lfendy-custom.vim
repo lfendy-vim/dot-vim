@@ -19,9 +19,9 @@ set directory=/tmp
 set laststatus=2
 set cursorline
 set expandtab
-set sw=2
-set tabstop=2
-set softtabstop=2
+set sw=4
+set tabstop=4
+set softtabstop=4
 set undodir=~/.vim/undo
 set undofile
 
@@ -120,3 +120,7 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
+set autoread
+au CursorHold,CursorHoldI * :checktime
+au FocusGained,BufEnter * :checktime
