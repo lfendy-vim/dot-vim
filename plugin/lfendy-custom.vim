@@ -19,9 +19,9 @@ set directory=/tmp
 set laststatus=2
 set cursorline
 set expandtab
-set sw=4
-set tabstop=4
-set softtabstop=4
+set sw=2
+set tabstop=2
+set softtabstop=2
 set undodir=~/.vim/undo
 set undofile
 
@@ -76,12 +76,14 @@ nnoremap ; :
 nnoremap <silent> <LocalLeader><cr> :tabe<cr>
 nnoremap <silent> <LocalLeader>[ :tabp<cr>
 nnoremap <silent> <LocalLeader>] :tabn<cr>
+nnoremap <silent> <LocalLeader>p :tabp<cr>
+nnoremap <silent> <LocalLeader>o :tabn<cr>
 nnoremap <silent><S-D-Up> :wincmd k<cr>
 nnoremap <silent><S-D-Down> :wincmd j<cr>
 nnoremap <silent><S-D-Left> :wincmd h<cr>
 nnoremap <silent><S-D-Right> :wincmd l<cr>
 nnoremap <silent><leader>ff :CtrlP<cr>
-nnoremap <silent><leader>tt :!ctags -R --exclude=.git --exclude=log *<cr>
+nnoremap <silent><leader>tt :!ctags -R --exclude=node_modules --exclude=.git --exclude=log *<cr>
 nnoremap <silent><leader>ds :DiffSaved<cr>
 nnoremap ,, :wa<cr> :Unite -start-insert file_rec<cr>
 nnoremap <leader>aw :Ack '<C-r><C-w>'<CR>
@@ -92,22 +94,27 @@ let g:javascript_conceal=0
 set conceallevel=0
 
 "Ack grep using the silver searcher
-"let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "run test
 nnoremap <silent><leader>vc :VimuxClose<cr>
 nnoremap <silent><leader>vf :wa<cr> :call VimuxRunCommand("ccc && be rspec " . bufname("%"))<cr>
 nnoremap <silent><leader>vt :wa<cr> :call VimuxRunCommand("ccc && be rspec " . bufname("%") . ":" . line("."))<cr>
 nnoremap <silent><leader>va :wa<cr> :call VimuxRunCommand("ccc && be rspec ")<cr>
+"nnoremap <silent><leader>tt :wa<cr> :call VimuxRunCommand("clear && tmux clear-history && ./run.sh ")<cr>
 "nnoremap <silent><leader>rt :!be rspec %
 
 
 command! Tidy execute "0,$! tidy -i -xml -q"
 
 
-
-
-
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 1000
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](node_modules|\.git|\.hg|\.svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 let g:NERDTreeDirArrows=0
 let g:VimuxHeight=40
 

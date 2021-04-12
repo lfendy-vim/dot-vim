@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/lfendy/Development/polyrepo/yolodex/infra/terraform'
+let g:netrw_dirhist_1='/Users/lfendy/Development/gap/apps/braid/_build'
