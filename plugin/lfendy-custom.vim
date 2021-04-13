@@ -1,8 +1,12 @@
+if has('termguicolors')
+  set termguicolors
+endif
+
 set t_Co=256
-"let g:solarized_termcolors=256
-"colorscheme solarized
 set background=dark
-colorscheme anotherdark
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 syntax on
 
 set hlsearch
@@ -76,8 +80,8 @@ nnoremap ; :
 nnoremap <silent> <LocalLeader><cr> :tabe<cr>
 nnoremap <silent> <LocalLeader>[ :tabp<cr>
 nnoremap <silent> <LocalLeader>] :tabn<cr>
-nnoremap <silent> <LocalLeader>p :tabp<cr>
-nnoremap <silent> <LocalLeader>o :tabn<cr>
+nnoremap <silent> <LocalLeader>p :tabn<cr>
+nnoremap <silent> <LocalLeader>o :tabp<cr>
 nnoremap <silent><S-D-Up> :wincmd k<cr>
 nnoremap <silent><S-D-Down> :wincmd j<cr>
 nnoremap <silent><S-D-Left> :wincmd h<cr>

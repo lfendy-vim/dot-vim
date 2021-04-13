@@ -23,6 +23,7 @@ Bundle 'lfendy-vim/kotlin-vim.git'
 Bundle 'lfendy-vim/typescript-vim"'
 Bundle 'fatih/vim-go'
 Bundle 'elixir-editors/vim-elixir'
+Bundle 'sainnhe/gruvbox-material'
 
 
 
