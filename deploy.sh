@@ -12,3 +12,5 @@ ln -s `pwd`/.tmux.conf $HOME/.tmux.conf
 
 vim +PluginInstall +qall
 
+# brew install fzf
+# $(brew --prefix)/opt/fzf/install
