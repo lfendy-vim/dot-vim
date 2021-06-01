@@ -9,6 +9,8 @@ let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox-material
 syntax on
 
+let g:VimTodoListsKeepSameIndent = 0
+
 set hlsearch
 set nocompatible
 set number
@@ -87,11 +89,14 @@ nnoremap <silent><S-D-Down> :wincmd j<cr>
 nnoremap <silent><S-D-Left> :wincmd h<cr>
 nnoremap <silent><S-D-Right> :wincmd l<cr>
 nnoremap <silent><leader>ff :CtrlP<cr>
-nnoremap <silent><leader>tt :!ctags -R --exclude=node_modules --exclude=.git --exclude=log *<cr>
+" nnoremap <silent><leader>tt :!ctags -R --exclude=node_modules --exclude=.git --exclude=log *<cr>
+nnoremap <silent><leader>tt "=strftime("%F")<CR>PyypVr-
 nnoremap <silent><leader>ds :DiffSaved<cr>
 nnoremap ,, :wa<cr> :Unite -start-insert file_rec<cr>
 nnoremap <leader>aw :Ack '<C-r><C-w>'<CR>
 set backspace=indent,eol,start
+
+
 
 "Javascript
 let g:javascript_conceal=0
@@ -112,6 +117,7 @@ nnoremap <silent><leader>va :wa<cr> :call VimuxRunCommand("ccc && be rspec ")<cr
 command! Tidy execute "0,$! tidy -i -xml -q"
 
 
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 1000
 let g:ctrlp_custom_ignore = {

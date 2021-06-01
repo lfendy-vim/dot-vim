@@ -24,7 +24,9 @@ Bundle 'lfendy-vim/typescript-vim"'
 Bundle 'fatih/vim-go'
 Bundle 'elixir-editors/vim-elixir'
 Bundle 'sainnhe/gruvbox-material'
-
+Bundle 'sheerun/vim-polyglot'
+" Bundle 'freitass/todo.txt-vim'
+Bundle 'aserebryakov/vim-todo-lists'
 
 
 

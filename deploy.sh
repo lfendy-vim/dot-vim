@@ -20,6 +20,8 @@ vim +PluginInstall +qall
 # git@github.com:herrbischoff/iterm2-gruvbox.git
 
 ### iterm italics
+### https://rsapkf.xyz/blog/enabling-italics-vim-tmux
+### https://github.com/tmux/tmux/issues/597
 # $ brew install ncurses
 # $ /usr/local/opt/ncurses/bin/infocmp tmux-256color > ~/tmux-256color.info
 # $ tic -xe tmux-256color tmux-256color.info
