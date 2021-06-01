@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+function iterm () {
+    local cmd="${@:5}"
+    local x="$1"
+    local y="$2"
+    local w="$3"
+    local h="$4"
+
+    osascript <<EOF
+tell application "iTerm2"
+	activate
+	set new_window to (create window with default profile)
+	set cSession to current session of new_window
+	tell new_window
+		tell cSession
+			delay 1
+			write text "$cmd"
+		end tell
+	end tell
+end tell
+
+tell application "System Events" to tell process "iTerm2"
+    set position of window 1 to {$x, $y}
+    set size of window 1 to {$w, $h}
+end tell
+EOF
+}
+
+# monitor 1: 1792 width
+# monitor 2: 3440 width
+# monitor 3: 1920 width
+
+iterm 5232 0 960 1080 "tmux new-session -s main 'vim ~/proj/yolodex/tasks.todo.md' \\\\; new-window -d"
+iterm 4085 0 1720 1440 "tmux new-session -t main -s work \\\\; next-window \\\\;"
+
