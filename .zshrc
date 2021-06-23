@@ -8,6 +8,12 @@ alias k=kubectl
 source <(kubectl completion zsh)
 source <(kubectl completion zsh | sed 's/kubectl/k/g' )
 
+# trailing tim watch
+function twatch() {
+  while : ; do echo `date; $*` ; sleep 10; done
+}
+
+
 eval "$(pyenv init -)"
 
 export PS1='${SSH_CONNECTION+"%{$fg_bold[cyan]%}%n@%m:"}%{$fg_bold[green]%}%1d%{$reset_color%}$(git_prompt_info):%? '
