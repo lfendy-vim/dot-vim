@@ -4,6 +4,9 @@ if [ -f '/Users/lfendy/Downloads/gcloudsdk/google-cloud-sdk/path.zsh.inc' ]; the
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/lfendy/Downloads/gcloudsdk/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lfendy/Downloads/gcloudsdk/google-cloud-sdk/completion.zsh.inc'; fi
 
+alias ccc="clear && tmux clear-history"
+
+
 alias k=kubectl
 source <(kubectl completion zsh)
 source <(kubectl completion zsh | sed 's/kubectl/k/g' )
@@ -21,7 +24,6 @@ export PS1='${SSH_CONNECTION+"%{$fg_bold[cyan]%}%n@%m:"}%{$fg_bold[green]%}%1d%{
 ##### fzf stuff
 
 
-EVERSE_ISEARCH_OPTS
 FZF_CTRL_R_OPTS='--preview-window=up:10:wrap --preview="echo \"{}\"" --height 100%'
 
 __fzfcmd() {
